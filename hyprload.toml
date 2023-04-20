@@ -1,0 +1,10 @@
+[hyprlens]
+description = "Customizable background for transparent windows, separate from the desktop background."
+version = "1.0.0"
+author = "Duckonaut"
+
+[hyprlens.build]
+output = "hyprlens.so"
+steps = [
+    "make all",
+]
