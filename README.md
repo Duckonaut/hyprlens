@@ -1,5 +1,5 @@
-# split-monitor-workspaces
-A small plugin to provide `awesome`/`dwm`-like behavior with workspaces: split them between monitors and provide independent numbering
+# hyprlens
+A small plugin to provide a shared image as the background for transparent windows.
 
 # Installing
 Since Hyprland plugins don't have ABI guarantees, you *should* download the Hyprland source and compile it if you plan to use plugins.
@@ -8,10 +8,10 @@ This ensures the compiler version is the same between the Hyprland build you're 
 The guide on compiling and installing Hyprland manually is on the [wiki](http://wiki.hyprland.org/Getting-Started/Installation/#manual-manual-build)
 
 ## Using [hyprload](https://github.com/Duckonaut/hyprload)
-Add the line `"Duckonaut/split-monitor-workspaces",` to your `hyprload.toml` config, like this
+Add the line `"Duckonaut/hyprlens",` to your `hyprload.toml` config, like this
 ```toml
 plugins = [
-    "Duckonaut/split-monitor-workspaces",
+    "Duckonaut/hyprlens",
 ]
 ```
 Then update via the `hyprload,update` dispatcher
@@ -22,25 +22,16 @@ Then update via the `hyprload,update` dispatcher
 2. Compile
     - `make all`
 3. Add this line to the bottom of your hyprland config
-    - `exec-once=hyprctl plugin load <ABSOLUTE PATH TO split-monitor-workspaces.so>`
+    - `exec-once=hyprctl plugin load <ABSOLUTE PATH TO hyprlens.so>`
 
 
 # Usage
-The plugin provides drop-in replacements for workspace-related commands
-| Normal                | Replacement                   |
-|-----------------------|-------------------------------|
-| workspace             | split-workspace               |
-| movetoworkspace       | split-movetoworkspace         |
-| movetoworkspacesilent | split-movetoworkspacesilent   |
+Set the config up to your liking. If the image isn't found, you'll notice all your backgrounds are red.
 
-It also provides the following config values
-| Name                                      | Type      | Default   | Description                                   |
-|-------------------------------------------|-----------|-----------|-----------------------------------------------|
-| `plugin:split-monitor-workspaces:count`   | int       | 10        | How many workspaces to bind to the monitor    |
+| Name                              | Type      | Default   | Description                                               |
+|-----------------------------------|-----------|-----------|-----------------------------------------------------------|
+| `plugin:hyprlens:background`      | string    | none      | The ABSOLUTE path to the image (must be .png)             |
+| `plugin:hyprlens:tiled`           | bool      | false     | Whether to keep the pixel size constant and draw tiled    |
+| `plugin:hyprlens:nearest`         | bool      | false     | If enabled, no filtering                                  |
 
-Keep in mind that if you're using, for example, the `wlr/workspaces` widgets in [waybar](https://github.com/Alexays/Waybar), this will require a change to your config. You should set `all-outputs` to `false`, and adjust the icon mapping.
-
-If your workspace-per-monitor count is 10, the first monitor will have workspaces 1-10, the second 11-20 and so on. They will be accessed via numbers 1-10 while your mouse is on a given monitor.
-
-# Special thanks
-- [hyprsome](https://github.com/sopa0/hyprsome): An earlier project of similar nature
+As of right now, changing the config value will not update the backdrop. A restart is needed.
