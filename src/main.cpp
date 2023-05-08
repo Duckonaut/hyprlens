@@ -1,17 +1,17 @@
-#include "src/debug/Log.hpp"
-#include "src/helpers/Vector2D.hpp"
-#include "src/plugins/PluginAPI.hpp"
 #define WLR_USE_UNSTABLE
 
 #include "globals.hpp"
 
-#include <src/Compositor.hpp>
-#include <src/SharedDefs.hpp>
-#include <src/config/ConfigManager.hpp>
-#include <src/helpers/Color.hpp>
-#include <src/helpers/Workspace.hpp>
-#include <src/managers/KeybindManager.hpp>
-#include <src/render/OpenGL.hpp>
+#include <hyprland/src/debug/Log.hpp>
+#include <hyprland/src/helpers/Vector2D.hpp>
+#include <hyprland/src/plugins/PluginAPI.hpp>
+#include <hyprland/src/Compositor.hpp>
+#include <hyprland/src/SharedDefs.hpp>
+#include <hyprland/src/config/ConfigManager.hpp>
+#include <hyprland/src/helpers/Color.hpp>
+#include <hyprland/src/helpers/Workspace.hpp>
+#include <hyprland/src/managers/KeybindManager.hpp>
+#include <hyprland/src/render/OpenGL.hpp>
 
 #include <algorithm>
 #include <map>
